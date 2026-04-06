@@ -139,6 +139,7 @@ function App() {
                 </PageTransition>
               }
             />
+
             <Route
               path="/contact"
               element={

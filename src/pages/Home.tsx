@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
+import LabSearchSection from '../components/LabSearchSection';
 import Features from '../components/Features';
 // import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
@@ -19,6 +20,7 @@ const Home = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <Hero />
+      <LabSearchSection />
       <Services />
       <Features />
       {/* <Testimonials /> */}

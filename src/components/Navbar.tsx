@@ -58,6 +58,11 @@ const Navbar = () => {
       href: '/insights',
       hasDropdown: false
     },
+    {
+      name: 'Search Labs',
+      href: '/search-labs',
+      hasDropdown: false
+    },
   ];
 
   return (

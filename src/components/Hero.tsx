@@ -67,7 +67,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Your Partner in
+              Explore the
             </motion.span>
             <br />
             <motion.span
@@ -76,7 +76,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Digital Transformation
+              right labs near you
             </motion.span>
           </motion.h1>
 
@@ -105,7 +105,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center space-x-2 hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl"
               >
-                <span>Explore Our Services</span>
+                <span>Explore Platform</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>

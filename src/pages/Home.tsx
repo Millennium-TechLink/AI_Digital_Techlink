@@ -9,12 +9,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>TechLink - Your Partner in Digital Transformation</title>
+        <title>TechLink - Explore the right labs near you</title>
         <meta 
           name="description" 
           content="We provide expert cloud, data, and digital experience solutions to accelerate your business growth, enhance efficiency, and foster innovation." 
         />
-        <meta property="og:title" content="TechLink - Your Partner in Digital Transformation" />
+        <meta property="og:title" content="TechLink - Explore the right labs near you" />
         <meta property="og:description" content="Expert cloud, data, and digital experience solutions for your business." />
         <meta property="og:type" content="website" />
       </Helmet>

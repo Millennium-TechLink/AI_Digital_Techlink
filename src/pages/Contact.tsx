@@ -104,10 +104,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                       <p className="text-gray-600">
-                        18, 19, 2nd Floor, Mahalaxmi Heights<br />
-                        17, Mumbai Highway, Morewadi<br />
-                        Pimpri Colony, Pune, Pimpri-Chinchwad<br />
-                        Maharashtra 411018
+                        17/18/19, 2nd Floor, Mahalaxmi Heights<br />
+                        Mumbai-Pune Road, Pimpri<br />
+                        Pune, Maharashtra - 411018
                       </p>
                     </div>
                   </div>
@@ -216,12 +215,8 @@ const Contact = () => {
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                       >
                         <option value="">Select a service</option>
-                        <option value="cloud">Cloud & Infrastructure</option>
-                        <option value="data">Data & Analytics</option>
-                        <option value="digital">Digital Experiences</option>
-                        <option value="security">Cybersecurity</option>
-                        <option value="consulting">IT Consulting</option>
-                        <option value="custom">Custom Development</option>
+                        <option value="design-verification">Design Verification</option>
+                        <option value="testing">Testing</option>
                       </select>
                     </div>
                     <div>

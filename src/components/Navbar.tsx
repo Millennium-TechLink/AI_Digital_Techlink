@@ -23,12 +23,8 @@ const Navbar = () => {
       href: '/services',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Data & Analytics', href: '/services/data-analytics' },
-        { name: 'Digital Experiences', href: '/services/digital-experiences' },
-        { name: 'Custom Development', href: '/services/custom-development' },
-        { name: 'IT Consulting', href: '/services/it-consulting' },
-        { name: 'Cloud & Infrastructure', href: '/services/cloud-infrastructure' },
-        { name: 'Cybersecurity', href: '/services/cybersecurity' },
+        { name: 'Design Verification', href: '/services/design-verification' },
+        { name: 'Testing', href: '/services/testing' },
       ]
     },
     {

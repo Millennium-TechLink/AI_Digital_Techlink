@@ -11,7 +11,7 @@ const Services = () => {
         <title>Our Services - TechLink</title>
         <meta 
           name="description" 
-          content="Comprehensive technology services including cloud infrastructure, data analytics, digital experiences, cybersecurity, IT consulting, and custom development." 
+          content="TechLink offers specialized Design Verification and Testing services to ensure product compliance, reliability, and performance." 
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white">
@@ -32,7 +32,7 @@ const Services = () => {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (

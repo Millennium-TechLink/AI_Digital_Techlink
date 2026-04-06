@@ -139,7 +139,7 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-700">
                   <strong>Email:</strong> privacy@techlink.com<br />
                   <strong>Phone:</strong> +91-9156031867<br />
-                  <strong>Address:</strong> 18, 19, 2nd Floor, Mahalaxmi Heights, 17, Mumbai Highway, Morewadi, Pimpri Colony, Pune, Pimpri-Chinchwad, Maharashtra 411018
+                  <strong>Address:</strong> 17/18/19, 2nd Floor, Mahalaxmi Heights, Mumbai-Pune Road, Pimpri, Pune, Maharashtra - 411018
                 </p>
               </div>
             </section>

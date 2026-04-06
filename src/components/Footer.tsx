@@ -28,12 +28,8 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Data & Analytics', href: '/services/data-analytics' },
-      { name: 'Digital Experiences', href: '/services/digital-experiences' },
-      { name: 'Custom Development', href: '/services/custom-development' },
-      { name: 'IT Consulting', href: '/services/it-consulting' },
-      { name: 'Cloud & Infrastructure', href: '/services/cloud-infrastructure' },
-      { name: 'Cybersecurity', href: '/services/cybersecurity' },
+      { name: 'Design Verification', href: '/services/design-verification' },
+      { name: 'Testing', href: '/services/testing' },
     ],
     resources: [
       { name: 'Blog', href: '/blog' },
@@ -69,7 +65,7 @@ const Footer = () => {
                 className="h-20 md:h-24 w-auto mb-4 opacity-90 hover:opacity-100 transition-opacity"
               />
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Your trusted partner in digital transformation. We provide expert
+                Explore the right labs near you. We provide expert
                 solutions to accelerate your business growth and innovation.
               </p>
               <div className="space-y-3">
@@ -83,7 +79,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-start space-x-3 text-gray-400">
                   <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span>18, 19, 2nd Floor, Mahalaxmi Heights, 17, Mumbai Highway, Morewadi, Pimpri Colony, Pune, Pimpri-Chinchwad, Maharashtra 411018</span>
+                  <span>17/18/19, 2nd Floor, Mahalaxmi Heights, Mumbai-Pune Road, Pimpri, Pune, Maharashtra - 411018</span>
                 </div>
               </div>
             </motion.div>

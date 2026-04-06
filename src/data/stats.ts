@@ -3,7 +3,7 @@ import type { Stat } from '@/types';
 export const heroStats: Stat[] = [
   { number: '500+', label: 'Projects Delivered' },
   { number: '98%', label: 'Client Satisfaction' },
-  { number: '24/7', label: 'Support Available' },
+  { number: '24 / 7', label: 'Support Available' },
 ];
 
 export const featureStats: Stat[] = [

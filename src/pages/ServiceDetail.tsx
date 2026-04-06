@@ -48,14 +48,21 @@ const ServiceDetail = () => {
           >
             <div className="flex items-center gap-6 mb-6">
               <div
-                className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center`}
+                className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center ${service.isComingSoon ? 'opacity-80 grayscale-[0.8]' : ''}`}
               >
                 <Icon className="w-10 h-10 text-white" />
               </div>
-              <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-                  {service.title}
-                </h1>
+              <div className="flex-1">
+                <div className="flex items-center gap-4 mb-2">
+                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+                    {service.title}
+                  </h1>
+                  {service.isComingSoon && (
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase bg-primary-50 text-primary-600 border border-primary-100 shadow-sm">
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
                 <p className="text-xl text-gray-600">{service.description}</p>
               </div>
             </div>
@@ -64,11 +71,24 @@ const ServiceDetail = () => {
           {/* Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
+              {service.isComingSoon && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-primary-50/50 border border-primary-100 rounded-2xl p-8 mb-12 text-center"
+                >
+                  <h3 className="text-2xl font-bold text-primary-900 mb-2">Under Development</h3>
+                  <p className="text-primary-700">
+                    We're currently perfecting our {service.title.toLowerCase()} service to bring you the highest quality solutions. 
+                    Most of the information below is a preview of what's to come.
+                  </p>
+                </motion.div>
+              )}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="prose prose-lg max-w-none"
+                className={`prose prose-lg max-w-none ${service.isComingSoon ? 'opacity-70 grayscale-[0.8] pointer-events-none' : ''}`}
               >
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
                   Overview
@@ -134,19 +154,21 @@ const ServiceDetail = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-gray-50 rounded-2xl p-8 sticky top-32"
+                className="bg-gray-50 rounded-2xl p-8 sticky top-32 border border-gray-100"
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Get Started Today
+                  {service.isComingSoon ? "Get Early Access" : "Get Started Today"}
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Ready to transform your business? Let's discuss how we can help.
+                  {service.isComingSoon 
+                    ? "Interested in this service? Contact us to be among the first to be notified when we launch."
+                    : "Ready to transform your business? Let's discuss how we can help."}
                 </p>
                 <Link
                   to="/contact"
-                  className="block w-full bg-primary-600 text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors mb-4"
+                  className="block w-full bg-primary-600 text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors mb-4 shadow-sm hover:shadow-md"
                 >
-                  Schedule a Consultation
+                  {service.isComingSoon ? "Register Interest" : "Schedule a Consultation"}
                 </Link>
                 <Link
                   to="/services"

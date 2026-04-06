@@ -22,6 +22,7 @@ import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ScrollToTop />
       {!isCMSRoute && <Navbar />}
       <main>
         <AnimatePresence mode="wait">

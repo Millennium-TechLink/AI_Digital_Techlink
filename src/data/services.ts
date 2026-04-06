@@ -3,14 +3,6 @@ import type { Service } from '@/types';
 
 export const services: Service[] = [
   {
-    icon: Cloud,
-    title: 'Cloud & Infrastructure',
-    description:
-      'Modernize your operations with our secure, scalable, and high-performance cloud solutions.',
-    features: ['AWS/Azure/GCP', 'DevOps & CI/CD', 'Container Orchestration'],
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
     icon: Database,
     title: 'Data & Analytics',
     description:
@@ -27,12 +19,12 @@ export const services: Service[] = [
     color: 'from-green-500 to-emerald-500',
   },
   {
-    icon: Shield,
-    title: 'Cybersecurity',
+    icon: Code,
+    title: 'Custom Development',
     description:
-      'Protect your digital assets with comprehensive security solutions and best practices.',
-    features: ['Security Audits', 'Threat Detection', 'Compliance'],
-    color: 'from-red-500 to-orange-500',
+      'Tailored software solutions built to meet your unique business requirements.',
+    features: ['Enterprise Software', 'API Development', 'System Integration'],
+    color: 'from-indigo-500 to-blue-500',
   },
   {
     icon: Zap,
@@ -43,12 +35,21 @@ export const services: Service[] = [
     color: 'from-yellow-500 to-amber-500',
   },
   {
-    icon: Code,
-    title: 'Custom Development',
+    icon: Cloud,
+    title: 'Cloud & Infrastructure',
     description:
-      'Tailored software solutions built to meet your unique business requirements.',
-    features: ['Enterprise Software', 'API Development', 'System Integration'],
-    color: 'from-indigo-500 to-blue-500',
+      'Modernize your operations with our secure, scalable, and high-performance cloud solutions.',
+    features: ['AWS/Azure/GCP', 'DevOps & CI/CD', 'Container Orchestration'],
+    color: 'from-blue-500 to-cyan-500',
+    isComingSoon: true,
+  },
+  {
+    icon: Shield,
+    title: 'Cybersecurity',
+    description:
+      'Protect your digital assets with comprehensive security solutions and best practices.',
+    features: ['Security Audits', 'Threat Detection', 'Compliance'],
+    color: 'from-red-500 to-orange-500',
+    isComingSoon: true,
   },
 ];
-

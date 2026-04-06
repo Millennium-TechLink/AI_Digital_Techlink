@@ -56,26 +56,44 @@ const Services = () => {
               <motion.div
                 key={service.title}
                 variants={itemVariants}
-                whileHover={{ y: -15, scale: 1.02 }}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                whileHover={service.isComingSoon ? { y: -5 } : { y: -15, scale: 1.02 }}
+                className={`group relative bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden ${
+                  service.isComingSoon ? 'cursor-default opacity-80 grayscale-[0.8]' : 'hover:shadow-2xl'
+                }`}
               >
+                {/* Coming Soon Badge */}
+                {service.isComingSoon && (
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary-50 text-primary-600 border border-primary-100">
+                      Coming Soon
+                    </span>
+                  </div>
+                )}
+
                 {/* Animated background gradient on hover */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                  initial={false}
-                />
+                {!service.isComingSoon && (
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                    initial={false}
+                  />
+                )}
+                
                 {/* Icon */}
                 <motion.div
-                  className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative`}
-                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                  className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 transition-transform relative ${
+                    !service.isComingSoon && 'group-hover:scale-110'
+                  } ${service.isComingSoon ? 'opacity-80 grayscale-[0.5]' : ''}`}
+                  whileHover={!service.isComingSoon ? { rotate: [0, -10, 10, -10, 0] } : {}}
                   transition={{ duration: 0.5 }}
                 >
                   <Icon className="w-8 h-8 text-white relative z-10" />
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-xl blur-xl opacity-50`}
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
+                  {!service.isComingSoon && (
+                    <motion.div
+                      className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-xl blur-xl opacity-50`}
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  )}
                 </motion.div>
 
                 {/* Content */}
@@ -93,14 +111,18 @@ const Services = () => {
                       key={feature}
                       className="flex items-center text-sm text-gray-600"
                     >
-                      <div className="w-1.5 h-1.5 bg-primary-600 rounded-full mr-2" />
+                      <div className={`w-1.5 h-1.5 rounded-full mr-2 ${
+                        service.isComingSoon ? 'bg-gray-300' : 'bg-primary-600'
+                      }`} />
                       {feature}
                     </li>
                   ))}
                 </ul>
 
-                {/* Hover Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                {/* Hover Effect overlay */}
+                {!service.isComingSoon && (
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                )}
               </motion.div>
             );
           })}

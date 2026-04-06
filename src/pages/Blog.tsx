@@ -2,66 +2,80 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
+import { useState } from 'react';
 
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
   const blogPosts = [
     {
       id: 1,
-      title: 'The Future of Cloud Computing in 2024',
-      excerpt: 'Explore the latest trends and innovations shaping the cloud computing landscape, including edge computing, serverless architectures, and AI integration.',
-      date: 'March 15, 2024',
-      readTime: '5 min read',
-      category: 'Cloud Computing',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800',
-    },
-    {
-      id: 2,
-      title: 'Data Analytics: Turning Insights into Action',
-      excerpt: 'Learn how to leverage data analytics to drive business decisions and growth. Discover best practices for data collection, analysis, and visualization.',
-      date: 'March 10, 2024',
-      readTime: '7 min read',
-      category: 'Data Analytics',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-    },
-    {
-      id: 3,
-      title: 'Cybersecurity Best Practices for Modern Businesses',
-      excerpt: 'Essential security strategies to protect your digital assets and customer data. Learn about the latest threats and how to defend against them.',
-      date: 'March 5, 2024',
-      readTime: '6 min read',
-      category: 'Security',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800',
-    },
-    {
-      id: 4,
-      title: 'AI and Machine Learning: Transforming Business Operations',
-      excerpt: 'Discover how artificial intelligence and machine learning are revolutionizing the way businesses operate and make decisions.',
-      date: 'February 28, 2024',
+      title: 'From Copilots to Agents: What McKinsey’s 2025 AI Report Reveals',
+      excerpt: 'McKinsey data shows 64% of companies report innovation gains from AI, while "Agentic AI" is emerging as the next big shift from mere assistance to autonomous action.',
+      date: 'November 11, 2025',
       readTime: '8 min read',
       category: 'AI & ML',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
+      externalUrl: 'https://www.linkedin.com/pulse/from-copilots-agents-what-mckinseys-2025-ai-report-reveals-chandler-dv1pe'
+    },
+    {
+      id: 2,
+      title: 'Gartner Projects $244 Billion in Security Spending for 2026',
+      excerpt: 'Enterprise security spending is on track to approach $244 billion in 2026, marking one of the largest shifts to automation-driven, zero-trust architectures.',
+      date: 'February 10, 2026',
+      readTime: '6 min read',
+      category: 'Security',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800',
+      externalUrl: 'https://www.linkedin.com/pulse/gartner-projects-244-billion-security-spending-2026-ai-louis-columbus-dciec'
+    },
+    {
+      id: 3,
+      title: '2026 Tech Outlook: “Engineered for Impact” in the Cloud',
+      excerpt: 'Gartner forecasts that global public cloud spending will exceed $723 billion in 2025, reinforcing that cloud remains a dominant force for 2026 digital infrastructure.',
+      date: 'January 12, 2026',
+      readTime: '7 min read',
+      category: 'Cloud Computing',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800',
+      externalUrl: 'https://www.linkedin.com/pulse/2026-tech-outlook-engineered-impact-quinnoxinc-lsvmc'
+    },
+    {
+      id: 4,
+      title: 'Big Data: The Next Frontier for Innovation and Competition',
+      excerpt: 'In sectors like healthcare and manufacturing, data-driven decisions are predicted to improve efficiency by 20% to 30% according to 2025 data research.',
+      date: 'December 15, 2025',
+      readTime: '9 min read',
+      category: 'Data Analytics',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+      externalUrl: 'https://www.linkedin.com/pulse/big-data-next-frontier-innovation-competition-2025-perspective-garg-naube'
     },
     {
       id: 5,
-      title: 'Digital Transformation: A Step-by-Step Guide',
-      excerpt: 'A comprehensive guide to digital transformation, covering strategy, implementation, and best practices for modernizing your business.',
-      date: 'February 20, 2024',
-      readTime: '10 min read',
+      title: 'Why 70% of AI Transformations Fail (And How to Succeed)',
+      excerpt: 'While many digital transformations struggle, prioritizing the "human element" can help AI-driven initiatives boost productivity by up to 40%.',
+      date: 'July 14, 2025',
+      readTime: '12 min read',
       category: 'Digital Transformation',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+      externalUrl: 'https://www.linkedin.com/pulse/human-element-why-70-ai-transformations-fail-how-succeed-trent-cotton-rjtbe'
     },
     {
       id: 6,
-      title: 'The Rise of Edge Computing: What You Need to Know',
-      excerpt: 'Understanding edge computing and its impact on modern applications. Learn how it reduces latency and improves user experiences.',
-      date: 'February 15, 2024',
-      readTime: '6 min read',
+      title: 'The Gartner Top 10 Strategic Technology Trends for 2026',
+      excerpt: 'Technology leaders face a pivotal year in 2026 as they navigate the integration of agentic AI and expanded edge computing capabilities.',
+      date: 'November 11, 2025',
+      readTime: '10 min read',
       category: 'Technology',
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800',
-    },
+      externalUrl: 'https://www.linkedin.com/pulse/gartner-top-10-strategic-technology-trends-2026-madaswamy-rwxtc'
+    }
   ];
 
   const categories = ['All', 'Cloud Computing', 'Data Analytics', 'Security', 'AI & ML', 'Digital Transformation', 'Technology'];
+
+  const filteredPosts = (activeCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeCategory))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <>
@@ -72,7 +86,7 @@ const Blog = () => {
           content="Read the latest insights, trends, and best practices from TechLink experts on technology, cloud computing, AI, and digital transformation." 
         />
       </Helmet>
-      <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white">
+      <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -99,30 +113,36 @@ const Blog = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-4 py-2 rounded-full bg-white text-gray-700 font-medium hover:bg-primary-600 hover:text-white transition-colors shadow-sm border border-gray-200"
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 shadow-sm border ${
+                  activeCategory === category
+                    ? 'bg-primary-600 text-white border-primary-600'
+                    : 'bg-white text-gray-700 border-gray-200 hover:border-primary-600 hover:text-primary-600'
+                }`}
               >
                 {category}
               </button>
             ))}
           </motion.div>
 
-          {/* Blog Posts Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {blogPosts.map((post, index) => (
-              <motion.article
+          {/* Blog Posts Grid - Section Refresh Style */}
+          <motion.div 
+            key={activeCategory}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-wrap justify-center gap-8 mb-12"
+          >
+            {filteredPosts.map((post) => (
+              <article
                 key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100"
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col group cursor-default"
               >
                 <div className="h-48 bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary-600 rounded-full text-sm font-semibold flex items-center gap-1">
@@ -131,7 +151,7 @@ const Blog = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
@@ -142,23 +162,36 @@ const Blog = () => {
                       <span>{post.readTime}</span>
                     </div>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 leading-snug">
                     {post.title}
                   </h2>
-                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3 flex-grow">
                     {post.excerpt}
                   </p>
-                  <Link
-                    to={`/blog/${post.id}`}
-                    className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
+                  
+                  {post.externalUrl ? (
+                    <a
+                      href={post.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors mt-auto"
+                    >
+                      Read More on LinkedIn
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={`/blog/${post.id}`}
+                      className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors mt-auto"
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  )}
                 </div>
-              </motion.article>
+              </article>
             ))}
-          </div>
+          </motion.div>
 
           {/* Newsletter CTA */}
           <motion.div

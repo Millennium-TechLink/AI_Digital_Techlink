@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Lock, Mail, ArrowRight, LogIn } from 'lucide-react';
+import { Lock, Mail, ArrowRight } from 'lucide-react';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -51,10 +51,16 @@ const SignIn = () => {
         >
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
             {/* Logo/Header */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-2xl mb-4">
-                <LogIn className="w-8 h-8 text-primary-600" />
-              </div>
+            <div className="text-center mb-10">
+              <Link to="/">
+                <motion.img
+                  src="/assets/logos/logo-colored.png"
+                  alt="TechLink Logo"
+                  className="h-16 md:h-20 w-auto mx-auto mb-6"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </Link>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 Welcome Back
               </h1>

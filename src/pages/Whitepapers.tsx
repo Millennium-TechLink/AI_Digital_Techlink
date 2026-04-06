@@ -6,63 +6,53 @@ const Whitepapers = () => {
   const whitepapers = [
     {
       id: 1,
-      title: 'The Complete Guide to Enterprise Cloud Security',
-      description: 'Comprehensive guide covering security best practices, compliance requirements, and implementation strategies for enterprise cloud deployments.',
-      date: 'March 1, 2024',
-      readTime: '20 min read',
-      pages: '45 pages',
-      category: 'Security',
-      downloadUrl: '#',
+      title: 'Autonomous EMC Monitoring: AI-Driven Real-Time RFI Detection in Satellite Networks',
+      description: 'A hybrid deep learning framework for autonomous RFI detection and characterization in satellite communication systems, utilizing CNN-LSTM architectures for enhanced reliability.',
+      date: 'Aug 16, 2025',
+      readTime: '15 min read',
+      pages: '12 pages',
+      category: 'EMC & AI',
+      downloadUrl: '/whitepapers/Aditya_EMC_in_Satellite_Communication.pdf',
     },
     {
       id: 2,
-      title: 'AI and Machine Learning in Business Operations',
-      description: 'Explore how AI and ML are transforming modern business operations, from automation to predictive analytics and intelligent decision-making.',
-      date: 'February 15, 2024',
-      readTime: '25 min read',
-      pages: '52 pages',
-      category: 'AI & ML',
-      downloadUrl: '#',
+      title: 'AI-Driven Electromagnetic Compatibility Assessment in Modern Power Systems',
+      description: 'A comprehensive review of AI applications in enhancing EMC assessment for modern power systems, focusing on fault detection, power quality, and EMI mitigation in smart grids.',
+      date: 'Aug 16, 2025',
+      readTime: '12 min read',
+      pages: '8 pages',
+      category: 'Power Systems',
+      downloadUrl: '/whitepapers/Karuna_EMC_In_PowerSystems 3.pdf',
     },
     {
       id: 3,
-      title: 'Digital Transformation Roadmap: A Strategic Framework',
-      description: 'A detailed framework for planning and executing digital transformation initiatives, with real-world examples and best practices.',
-      date: 'February 1, 2024',
-      readTime: '30 min read',
-      pages: '68 pages',
-      category: 'Strategy',
-      downloadUrl: '#',
+      title: 'Deep Learning-Enabled Antennas for Electromagnetic Compatibility Optimization',
+      description: 'Introduction of a novel AI-enabled cognitive antenna framework integrating deep neural networks and reinforcement learning for real-time antenna factor correction.',
+      date: 'Aug 16, 2025',
+      readTime: '18 min read',
+      pages: '10 pages',
+      category: 'Antenna Design',
+      downloadUrl: '/whitepapers/Omkar_Antennas for EMC.pdf',
     },
     {
       id: 4,
-      title: 'Data Governance and Compliance in the Cloud Era',
-      description: 'Understanding data governance, privacy regulations, and compliance requirements for organizations operating in cloud environments.',
-      date: 'January 20, 2024',
-      readTime: '22 min read',
-      pages: '48 pages',
-      category: 'Compliance',
-      downloadUrl: '#',
+      title: 'Federated AI for Cross-Domain Spectrum Management in Congested Environments',
+      description: 'A novel Federated AI (FedAI) framework leveraging Multi-Agent Reinforcement Learning and Explainable AI for privacy-preserving, collaborative spectrum management.',
+      date: 'Aug 16, 2025',
+      readTime: '20 min read',
+      pages: '15 pages',
+      category: 'Spectrum Mgmt',
+      downloadUrl: '/whitepapers/Parag_Emc_In_Spectrum_Management.pdf',
     },
     {
       id: 5,
-      title: 'Microservices Architecture: Design Patterns and Best Practices',
-      description: 'Deep dive into microservices architecture, covering design patterns, deployment strategies, and operational considerations.',
-      date: 'January 10, 2024',
-      readTime: '28 min read',
-      pages: '60 pages',
-      category: 'Architecture',
-      downloadUrl: '#',
-    },
-    {
-      id: 6,
-      title: 'The Future of Remote Work: Technology Infrastructure',
-      description: 'Exploring the technology infrastructure needed to support modern remote work environments and distributed teams.',
-      date: 'December 28, 2023',
-      readTime: '18 min read',
-      pages: '40 pages',
-      category: 'Workplace',
-      downloadUrl: '#',
+      title: 'AI-Enhanced Borophene-Graphene Hybrid EM Shielding for Helicopter Avionics',
+      description: 'An intelligent EMI shielding approach integrating a borophene–graphene hybrid structure with AI-driven control, delivering lightweight shielding for aerospace avionics.',
+      date: 'Aug 16, 2025',
+      readTime: '14 min read',
+      pages: '12 pages',
+      category: 'Aerospace',
+      downloadUrl: '/whitepapers/Shruti_EM_Shielding Materials.pdf',
     },
   ];
 
@@ -70,9 +60,9 @@ const Whitepapers = () => {
     <>
       <Helmet>
         <title>Whitepapers - TechLink</title>
-        <meta 
-          name="description" 
-          content="Download in-depth whitepapers on cloud computing, AI, digital transformation, security, and more from TechLink experts." 
+        <meta
+          name="description"
+          content="Download in-depth whitepapers on cloud computing, AI, digital transformation, security, and more from TechLink experts."
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white">
@@ -95,8 +85,8 @@ const Whitepapers = () => {
             </p>
           </motion.div>
 
-          {/* Whitepapers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {/* Whitepapers Grid - Balanced & Centered */}
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
             {whitepapers.map((paper, index) => (
               <motion.div
                 key={paper.id}
@@ -105,7 +95,7 @@ const Whitepapers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border border-gray-100"
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border border-gray-100 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -115,20 +105,24 @@ const Whitepapers = () => {
                     <span className="inline-block px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-semibold mb-2">
                       {paper.category}
                     </span>
-                    <h2 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                    <h2 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
                       {paper.title}
                     </h2>
                   </div>
                 </div>
 
-                <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3 flex-grow">
                   {paper.description}
                 </p>
 
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 pb-4 border-b border-gray-100">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-4 pb-4 border-b border-gray-100">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     <span>{paper.date}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <BookOpen className="w-4 h-4" />
+                    <span>{paper.readTime}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <FileText className="w-4 h-4" />
@@ -138,7 +132,7 @@ const Whitepapers = () => {
 
                 <a
                   href={paper.downloadUrl}
-                  className="inline-flex items-center justify-center w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+                  className="inline-flex items-center justify-center w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors mt-auto"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download PDF

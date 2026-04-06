@@ -1,15 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  Plane, 
-  Car, 
-  FlaskConical, 
-  Zap, 
-  Dna,
+import {
+  Plane,
+  Car,
+  FlaskConical,
   Factory,
-  Droplet,
-  ArrowRight 
+  ArrowRight
 } from 'lucide-react';
 
 const Industries = () => {
@@ -39,22 +36,6 @@ const Industries = () => {
       color: 'from-primary-600 to-secondary-500',
     },
     {
-      icon: Zap,
-      title: 'Energy',
-      slug: 'energy',
-      description: 'Smart energy solutions for power generation, distribution, and renewable energy management.',
-      features: ['Grid Management', 'Renewable Energy Systems', 'Energy Analytics'],
-      color: 'from-yellow-500 to-orange-500',
-    },
-    {
-      icon: Dna,
-      title: 'Life Sciences',
-      slug: 'life-sciences',
-      description: 'Cutting-edge technology solutions for pharmaceutical, biotech, and medical device companies.',
-      features: ['Regulatory Compliance', 'Clinical Data Management', 'Research & Development'],
-      color: 'from-green-500 to-emerald-500',
-    },
-    {
       icon: Factory,
       title: 'Manufacturing',
       slug: 'manufacturing',
@@ -62,23 +43,15 @@ const Industries = () => {
       features: ['IoT Integration', 'Predictive Maintenance', 'Supply Chain Management'],
       color: 'from-orange-500 to-amber-500',
     },
-    {
-      icon: Droplet,
-      title: 'Oil + Gas',
-      slug: 'oil-gas',
-      description: 'Robust technology solutions for upstream, midstream, and downstream oil and gas operations.',
-      features: ['Operations Management', 'Safety & Compliance', 'Asset Optimization'],
-      color: 'from-indigo-500 to-blue-500',
-    },
   ];
 
   return (
     <>
       <Helmet>
         <title>Industries We Serve - TechLink</title>
-        <meta 
-          name="description" 
-          content="TechLink provides specialized technology solutions for aerospace, automotive, commercial labs, energy, life sciences, manufacturing, and oil & gas industries." 
+        <meta
+          name="description"
+          content="TechLink provides specialized technology solutions for aerospace, automotive, commercial labs, and manufacturing industries."
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white">

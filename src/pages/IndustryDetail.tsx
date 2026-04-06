@@ -133,80 +133,6 @@ const IndustryDetail = () => {
         }
       ]
     },
-    'energy': {
-      title: 'Energy',
-      tagline: 'Work Smarter, Not Harder.',
-      description: 'Transform your operations with our customizable workflows and powerful data searching features. Ideal for multi-facility operations that need audit-ready data. Take advantage of all that Millennium Techlink can do for you:',
-      features: [
-        {
-          icon: 'workflow',
-          title: 'Customizable Workflows',
-          description: 'Customizable and flexible workflows can be altered to support your business flow and data requirements.'
-        },
-        {
-          icon: 'tool-tracking',
-          title: 'Asset Management',
-          description: 'Full inventory, repair and maintenance tracking with automatic asset numbering, historical event tracking, customized scheduling and more.'
-        },
-        {
-          icon: 'audits',
-          title: 'Complete Traceability',
-          description: 'Maintain a comprehensive history of all user interactions to preserve a complete audit trail.'
-        },
-        {
-          icon: 'tool-tracking',
-          title: 'Tool Tracking',
-          description: 'Track an unlimited number of serialized or non-serialized tools in unique, batch, or consumable groups.'
-        },
-        {
-          icon: 'compliance',
-          title: 'Compliance',
-          description: 'Meets compliance to environmental and safety standards for organizations looking to conform to Environmental Protective Agency (EPA) and Nuclear Regulatory Commission (NRC), 10 CFR standards.'
-        },
-        {
-          icon: 'cloud-license',
-          title: 'On-Premise or Cloud',
-          description: 'Pay upfront and own outright or choose a monthly or annual plan with our hosted Millennium Techlink Cloud.'
-        }
-      ]
-    },
-    'life-sciences': {
-      title: 'Life Sciences',
-      tagline: 'Life is complicated. Your calibration software doesn\'t have to be.',
-      description: 'Streamline your processes to maximize productivity and profitability while maintaining data integrity and compliance with 21 CFR Part 11, GMP, GLP, and GCP guidelines. Take advantage of all that Millennium Techlink can do for you:',
-      features: [
-        {
-          icon: 'workflow',
-          title: 'Customizable Workflows',
-          description: 'Optimize your workflow to suit the calibration, maintenance and asset tracking needs of your business rather than conform to the way the software operates.'
-        },
-        {
-          icon: 'audits',
-          title: 'Complete Traceability',
-          description: 'Maintain a comprehensive history of all user interactions to preserve a complete audit trail.'
-        },
-        {
-          icon: 'automation',
-          title: 'Automation',
-          description: 'Automated recalls for due notices and alerts, trigger notifications for equipment that fails calibration work and requires follow up with corrective action.'
-        },
-        {
-          icon: 'compliance',
-          title: 'Compliance',
-          description: 'Designed to help the life sciences industry ensure authenticity, integrity, and when appropriate confidentiality of electronic records to comply with 21 CFR Part 11.'
-        },
-        {
-          icon: 'signatures',
-          title: 'Electronic Signatures',
-          description: 'Customize your own sign-off rules for all recorded data.'
-        },
-        {
-          icon: 'cloud-license',
-          title: 'On-Premise or Cloud',
-          description: 'Pay upfront and own outright or choose a monthly or annual plan with our hosted Millennium Techlink Cloud.'
-        }
-      ]
-    },
     'manufacturing': {
       title: 'Manufacturing',
       tagline: 'Improve technician productivity to build a stronger operation',
@@ -241,43 +167,6 @@ const IndustryDetail = () => {
           icon: 'msa',
           title: 'Measurement System Analysis (MSA)',
           description: 'MSA utility for performing R&R, Bias, Linearity, and Stability studies.'
-        },
-        {
-          icon: 'cloud-license',
-          title: 'On-Premise or Cloud',
-          description: 'Pay upfront and own outright or choose a monthly or annual plan with our hosted Millennium Techlink Cloud.'
-        }
-      ]
-    },
-    'oil-gas': {
-      title: 'Oil & Gas',
-      tagline: 'Millennium Techlink helps you ensure that you have accurate process management to meet the critical requirements of the industry and keeps your data easily accessible and audit-ready with digital calibration certificates and an intuitive reporting module.',
-      description: 'Transform your operations with easy-to-use equipment templates, navigation, reports and searching. Take advantage of all that Millennium Techlink can do for you:',
-      features: [
-        {
-          icon: 'workflow',
-          title: 'Customizable Workflows',
-          description: 'Optimize your workflow to suit the calibration, maintenance and asset tracking needs of your business rather than conform to the way the software operates.'
-        },
-        {
-          icon: 'tool-tracking',
-          title: 'Asset Management',
-          description: 'Full inventory, repair and maintenance tracking with automatic asset numbering, historical event tracking, customized scheduling and more.'
-        },
-        {
-          icon: 'barcoding',
-          title: 'Barcoding',
-          description: 'Integrated 1D/2D barcoding and calibration sticker printing for quick and efficient equipment tracking and process automation.'
-        },
-        {
-          icon: 'automation',
-          title: 'Automation',
-          description: 'Automated alerts notify when items are due for calibration, failed calibrations and when corrective action is required.'
-        },
-        {
-          icon: 'compliance',
-          title: 'Compliance',
-          description: 'Built with compliance in mind, Millennium Techlink provides the technical controls necessary to maintain compliance with ISO 9001 and ISO/TS 29001 standards.'
         },
         {
           icon: 'cloud-license',

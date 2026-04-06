@@ -23,12 +23,12 @@ const Navbar = () => {
       href: '/services',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Cloud & Infrastructure', href: '/services/cloud-infrastructure' },
         { name: 'Data & Analytics', href: '/services/data-analytics' },
         { name: 'Digital Experiences', href: '/services/digital-experiences' },
-        { name: 'Cybersecurity', href: '/services/cybersecurity' },
-        { name: 'IT Consulting', href: '/services/it-consulting' },
         { name: 'Custom Development', href: '/services/custom-development' },
+        { name: 'IT Consulting', href: '/services/it-consulting' },
+        { name: 'Cloud & Infrastructure', href: '/services/cloud-infrastructure' },
+        { name: 'Cybersecurity', href: '/services/cybersecurity' },
       ]
     },
     {
@@ -69,8 +69,8 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-white/98 backdrop-blur-lg shadow-md border-b border-gray-100'
-          : 'bg-white/90 backdrop-blur-md'
+        ? 'bg-white/98 backdrop-blur-lg shadow-md border-b border-gray-100'
+        : 'bg-white/90 backdrop-blur-md'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,9 +81,9 @@ const Navbar = () => {
             className="flex items-center flex-shrink-0"
           >
             <motion.img
-              src="/logo.svg"
+              src="/assets/logos/logo-colored.png"
               alt="TechLink Logo"
-              className="h-10 md:h-12 w-auto"
+              className="h-12 md:h-16 w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
@@ -103,8 +103,8 @@ const Navbar = () => {
                   <div
                     onClick={(e) => e.preventDefault()}
                     className={`transition-all font-medium flex items-center gap-1.5 px-4 py-2.5 rounded-lg cursor-pointer ${link.dropdownItems?.some(item => location.pathname === item.href)
-                        ? 'text-primary-600 bg-primary-50'
-                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                      ? 'text-primary-600 bg-primary-50'
+                      : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
                       }`}
                   >
                     <span className="text-sm md:text-base">{link.name}</span>
@@ -114,8 +114,8 @@ const Navbar = () => {
                   <Link
                     to={link.href}
                     className={`transition-all font-medium flex items-center gap-1.5 px-4 py-2.5 rounded-lg ${location.pathname === link.href
-                        ? 'text-primary-600 bg-primary-50'
-                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                      ? 'text-primary-600 bg-primary-50'
+                      : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
                       }`}
                   >
                     <span className="text-sm md:text-base">{link.name}</span>

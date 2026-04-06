@@ -28,77 +28,62 @@ const About = () => {
   ];
 
   const team = [
-    { 
-      name: 'Haresh Abichandani', 
-      role: 'Leadership Team', 
+    {
+      name: 'Haresh Abichandani',
+      role: 'MD & Founder',
       image: '/leaders/Harish Sir.webp',
       bio: 'Passionate about delivering excellence in technology consulting and solutions.',
       email: 'haresh@techlink.com',
       linkedin: 'https://linkedin.com/in/haresh-abichandani',
-      expertise: 'Technology Consulting & Solutions'
+      expertise: 'Managing Director, Millennium Semiconductor'
     },
-    { 
-      name: 'Dr. Ananth Krishna', 
-      role: 'Director & Founder', 
+    {
+      name: 'Dr. Ananth Krishna',
+      role: 'Director & Founder',
       image: '/leaders/Ananth Sir.webp',
       bio: 'Visionary leader with extensive experience in technology and business strategy.',
       email: 'ananth@techlink.com',
       linkedin: 'https://linkedin.com/in/ananth-krishna',
       expertise: 'Strategic Planning & Technology Leadership'
     },
-    { 
-      name: 'Mahima BM', 
-      role: 'Leadership Team', 
+    {
+      name: 'Mahima BM',
+      role: 'Director',
       image: '/leaders/Mahima b.jpg',
       bio: 'Experienced professional with a strong background in technology and innovation.',
       email: 'mahima@techlink.com',
       linkedin: 'https://linkedin.com/in/mahima-bm',
-      expertise: 'Technology Innovation & Development'
+      expertise: 'Technology Innovation & Development',
+      imagePosition: 'center 0%',
+      imageTransform: 'scale(1.1) translateY(10%) translateX(2%)'
     },
-    { 
-      name: 'Harsha GP', 
-      role: 'Leadership Team', 
+    {
+      name: 'Harsha GP',
+      role: 'Strategic Manager',
       image: '/leaders/Harsha Sir.webp',
       bio: 'Dedicated to driving business growth through strategic technology initiatives.',
       email: 'harsha@techlink.com',
       linkedin: 'https://linkedin.com/in/harsha-gp',
-      expertise: 'Business Strategy & Growth'
+      expertise: 'Business Strategy & Growth',
+      imagePosition: 'center 0%'
     },
-    { 
-      name: 'Sri Harsha', 
-      role: 'Leadership Team', 
+    {
+      name: 'Sri Harsha',
+      role: 'Head - Quality Center of Excellence',
       image: '/leaders/Sri Harsha.png',
       bio: 'Experienced leader focused on delivering innovative solutions and strategic growth.',
       email: 'sriharsha@techlink.com',
       linkedin: 'https://linkedin.com/in/sri-harsha',
       expertise: 'Strategic Solutions & Innovation'
     },
-    { 
-      name: 'Mamta Malviya', 
-      role: 'Leadership Team', 
-      image: '/leaders/Mamta Mam.png',
-      bio: 'Strategic thinker focused on delivering exceptional client experiences and solutions.',
-      email: 'mamta@techlink.com',
-      linkedin: 'https://linkedin.com/in/mamta-malviya',
-      expertise: 'Client Relations & Solutions'
-    },
-    { 
-      name: 'Akshay Keerthi', 
-      role: 'Leadership Team', 
+    {
+      name: 'Akshay Keerthi',
+      role: 'Leadership Team',
       image: '/leaders/Akshay Sir.webp',
       bio: 'Expert in digital transformation and innovative technology solutions.',
       email: 'akshay@techlink.com',
       linkedin: 'https://linkedin.com/in/akshay-keerthi',
       expertise: 'Digital Transformation & Innovation'
-    },
-    { 
-      name: 'Member 8', 
-      role: 'Leadership Team', 
-      image: '/leaders/placeholder.webp',
-      bio: 'Expert in enterprise solutions and scalable technology architectures.',
-      email: 'member8@techlink.com',
-      linkedin: 'https://linkedin.com/in/member8',
-      expertise: 'Enterprise Architecture & Solutions'
     },
   ];
 
@@ -106,9 +91,9 @@ const About = () => {
     <>
       <Helmet>
         <title>About Us - TechLink</title>
-        <meta 
-          name="description" 
-          content="Learn about TechLink - our mission, values, team, and commitment to helping businesses achieve digital transformation." 
+        <meta
+          name="description"
+          content="Learn about TechLink - our mission, values, team, and commitment to helping businesses achieve digital transformation."
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-white">
@@ -141,13 +126,10 @@ const About = () => {
               >
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  To empower businesses with innovative technology solutions that drive growth,
-                  efficiency, and competitive advantage in an ever-evolving digital landscape.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  We believe that every business, regardless of size, deserves access to
-                  world-class technology expertise and solutions that can transform their operations
-                  and unlock their full potential.
+                  To empower customers with accurate, secure, and high-performance engineering solutions
+                  by delivering world-class design, development, debugging, simulation, and technical
+                  evaluation services that enhance reliability, accelerate development, and protect digital
+                  assets.
                 </p>
               </motion.div>
               <motion.div
@@ -159,8 +141,9 @@ const About = () => {
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To be the most trusted partner for digital transformation, recognized for our
-                  innovation, expertise, and unwavering commitment to client success.
+                  To be a global leader in AI-enabled engineering, design, debugging, and simulation
+                  services - delivering secure, precise, and innovative engineering solutions across the
+                  product lifecycle.
                 </p>
               </motion.div>
             </div>
@@ -223,7 +206,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {team.map((member, index) => (
                 <motion.div
                   key={member.name}
@@ -231,27 +214,36 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
                 >
                   <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-primary-100">
                     <img
                       src={member.image}
-                      alt={member.name}
                       className="w-full h-full object-cover"
+                      style={{
+                        objectPosition: member.imagePosition || 'center',
+                        transform: member.imageTransform || 'none'
+                      }}
                     />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
                   <p className="text-gray-600 mb-3">{member.role}</p>
-                  
+
                   {/* Bio */}
                   <p className="text-sm text-gray-600 mb-4 leading-relaxed">{member.bio}</p>
-                  
+
                   {/* Expertise */}
-                  <div className="flex items-center justify-center gap-2 mb-4 text-sm text-gray-700">
-                    <Briefcase className="w-4 h-4 text-primary-600" />
-                    <span className="font-medium">{member.expertise}</span>
+                  <div className="flex items-start justify-center gap-2 mb-4 text-sm text-gray-700 flex-grow">
+                    <Briefcase className="w-4 h-4 text-primary-600 mt-1 shrink-0" />
+                    <span className="font-medium text-center">
+                      {member.expertise.split(',').map((part, i) => (
+                        <span key={i} className="block">
+                          {part.trim()}{i === 0 && member.expertise.includes(',') ? ',' : ''}
+                        </span>
+                      ))}
+                    </span>
                   </div>
-                  
+
                   {/* Social Links */}
                   <div className="flex items-center justify-center gap-4 pt-4 border-t border-gray-100">
                     <a

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, Camera, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Camera, ArrowRight } from 'lucide-react';
 
 const Insights = () => {
   const events = [
@@ -10,7 +10,6 @@ const Insights = () => {
       description: 'Our quarterly townhall meeting where leadership shared company updates, achievements, and future roadmap with all team members.',
       date: 'December 12, 2025',
       location: 'Pune, India',
-      attendees: '150+',
       category: 'Company Event',
       image: '/Insights/Townhall.jpg',
       highlights: [
@@ -26,7 +25,6 @@ const Insights = () => {
       description: 'Festive celebration of Diwali with the TechLink family, featuring traditional rituals, decorations, and team bonding activities.',
       date: 'November 12, 2025',
       location: 'Pune, India',
-      attendees: '120+',
       category: 'Festival Celebration',
       image: '/Insights/Diwali.webp',
       highlights: [
@@ -42,7 +40,6 @@ const Insights = () => {
       description: 'Celebrating the auspicious festival of Ganesh Chaturthi with traditional ceremonies, prayers, and team festivities.',
       date: 'September 19, 2025',
       location: 'Pune, India',
-      attendees: '100+',
       category: 'Festival Celebration',
       image: '/Insights/Ganesh Chaturthi.webp',
       highlights: [
@@ -58,7 +55,6 @@ const Insights = () => {
       description: 'Vibrant Navratri celebration with traditional Garba dance, music, and cultural performances bringing the team together.',
       date: 'October 15, 2025',
       location: 'Pune, India',
-      attendees: '130+',
       category: 'Cultural Event',
       image: '/Insights/Garba.webp',
       highlights: [
@@ -74,7 +70,6 @@ const Insights = () => {
       description: 'Friendly badminton tournament promoting fitness, teamwork, and healthy competition among TechLink employees.',
       date: 'August 25, 2025',
       location: 'Pune, India',
-      attendees: '60+',
       category: 'Sports Event',
       image: '/Insights/Badminton.webp',
       highlights: [
@@ -90,7 +85,6 @@ const Insights = () => {
       description: 'Regular team lunch sessions fostering camaraderie, informal discussions, and strengthening team relationships.',
       date: 'August 15, 2025',
       location: 'Pune, India',
-      attendees: '80+',
       category: 'Team Building',
       image: '/Insights/Lunch.webp',
       highlights: [
@@ -106,7 +100,6 @@ const Insights = () => {
       description: 'Special team lunch celebration marking project milestones and team achievements with great food and company.',
       date: 'August 20, 2025',
       location: 'Pune, India',
-      attendees: '90+',
       category: 'Team Building',
       image: '/Insights/Lunch1.webp',
       highlights: [
@@ -191,10 +184,6 @@ const Insights = () => {
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <MapPin className="w-4 h-4 text-primary-600" />
                       <span>{event.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Users className="w-4 h-4 text-primary-600" />
-                      <span>{event.attendees} attendees</span>
                     </div>
                   </div>
 

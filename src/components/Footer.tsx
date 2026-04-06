@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Twitter, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
   Github,
-  ArrowUp 
+  ArrowUp
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -28,12 +28,12 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Cloud & Infrastructure', href: '/services/cloud-infrastructure' },
       { name: 'Data & Analytics', href: '/services/data-analytics' },
       { name: 'Digital Experiences', href: '/services/digital-experiences' },
-      { name: 'Cybersecurity', href: '/services/cybersecurity' },
-      { name: 'IT Consulting', href: '/services/it-consulting' },
       { name: 'Custom Development', href: '/services/custom-development' },
+      { name: 'IT Consulting', href: '/services/it-consulting' },
+      { name: 'Cloud & Infrastructure', href: '/services/cloud-infrastructure' },
+      { name: 'Cybersecurity', href: '/services/cybersecurity' },
     ],
     resources: [
       { name: 'Blog', href: '/blog' },
@@ -44,7 +44,6 @@ const Footer = () => {
     ],
     company: [
       { name: 'About Us', href: '/about' },
-      { name: 'Leadership', href: '/about' },
       { name: 'Careers', href: '/contact' },
       { name: 'Newsroom', href: '/insights' },
       { name: 'Contact Us', href: '/contact' },
@@ -64,11 +63,10 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <img
-                src="/logo.svg"
+             <img
+                src="/assets/logos/logo-white.png"
                 alt="TechLink Logo"
-                className="h-16 md:h-20 w-auto mb-4 opacity-90 hover:opacity-100 transition-opacity"
-                style={{ filter: 'brightness(0) invert(1)' }}
+                className="h-20 md:h-24 w-auto mb-4 opacity-90 hover:opacity-100 transition-opacity"
               />
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Your trusted partner in digital transformation. We provide expert

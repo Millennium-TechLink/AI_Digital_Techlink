@@ -6,6 +6,7 @@ export interface Service {
   description: string;
   features: string[];
   color: string;
+  isComingSoon?: boolean;
 }
 
 export interface Testimonial {

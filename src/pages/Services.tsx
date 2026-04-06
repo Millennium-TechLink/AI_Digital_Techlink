@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Zap } from 'lucide-react';
 import { services } from '@/data/services';
 
 const Services = () => {
@@ -41,16 +41,32 @@ const Services = () => {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -15, scale: 1.02, rotateY: 2 }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden relative"
-              >
-                {/* Animated shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                  initial={false}
-                />
+                  whileHover={service.isComingSoon ? { y: -5 } : { y: -15, scale: 1.02, rotateY: 2 }}
+                  className={`group relative bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden ${
+                    service.isComingSoon ? 'cursor-default opacity-80 grayscale-[0.8]' : 'hover:shadow-2xl'
+                  }`}
+                >
+                  {/* Coming Soon Badge */}
+                  {service.isComingSoon && (
+                    <div className="absolute top-4 right-4 z-20">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-primary-50 text-primary-600 border border-primary-100">
+                        Coming Soon
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Animated shimmer effect */}
+                  {!service.isComingSoon && (
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                      initial={false}
+                    />
+                  )}
+
                   <div
-                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 transition-transform ${
+                      !service.isComingSoon && 'group-hover:scale-110'
+                    } ${service.isComingSoon ? 'opacity-80 grayscale-[0.5]' : ''}`}
                   >
                     <Icon className="w-8 h-8 text-white" />
                   </div>
@@ -68,13 +84,21 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to={`/services/${service.title.toLowerCase().replace(/&/g, '').replace(/\s+/g, '-')}`}
-                    className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 group-hover:gap-2 transition-all"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  
+                  {service.isComingSoon ? (
+                    <div className="inline-flex items-center text-gray-400 font-medium cursor-default">
+                      Stay Tuned
+                      <Zap className="w-4 h-4 ml-1 text-primary-400/50" />
+                    </div>
+                  ) : (
+                    <Link
+                      to={`/services/${service.title.toLowerCase().replace(/&/g, '').replace(/\s+/g, '-')}`}
+                      className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 group-hover:gap-2 transition-all"
+                    >
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  )}
                 </motion.div>
               );
             })}

@@ -23,8 +23,8 @@ const Navbar = () => {
       href: '/services',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Design Verification', href: '/services/design-verification' },
-        { name: 'Testing', href: '/services/testing' },
+        { name: 'Design Verification & Validation', href: '/services/design-verification' },
+        { name: 'Pre-compliance Testing', href: '/services/testing' },
       ]
     },
     {

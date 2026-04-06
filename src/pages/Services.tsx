@@ -11,7 +11,7 @@ const Services = () => {
         <title>Our Services - TechLink</title>
         <meta 
           name="description" 
-          content="TechLink offers specialized Design Verification and Testing services to ensure product compliance, reliability, and performance." 
+          content="TechLink offers specialized Design Verification & Validation and Pre-compliance Testing services to ensure product compliance, reliability, and performance." 
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white">
@@ -92,7 +92,7 @@ const Services = () => {
                     </div>
                   ) : (
                     <Link
-                      to={`/services/${service.title.toLowerCase().replace(/&/g, '').replace(/\s+/g, '-')}`}
+                      to={`/services/${service.slug}`}
                       className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 group-hover:gap-2 transition-all"
                     >
                       Learn More

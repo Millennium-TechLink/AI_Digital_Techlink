@@ -210,10 +210,14 @@ const LabSearchSection = () => {
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col items-center justify-center text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Search <span className="text-blue-600">Labs</span>
-            </h1>
+          <div className="flex flex-col items-center justify-center text-center mb-10 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              The Right Lab, <span className="text-blue-600">Right Now.</span>
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed font-medium">
+              Pinpoint world-class testing facilities tailored to your specific compliance 
+              and reliability requirements in seconds.
+            </p>
           </div>
 
           {/* Filters Area */}

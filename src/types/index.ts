@@ -3,6 +3,7 @@
 export interface Service {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
+  slug: string;
   description: string;
   features: string[];
   color: string;

@@ -82,13 +82,13 @@ const About = () => {
         expertise: 'Strategic Solutions & Innovation'
       },
       {
-        name: 'Akshay Keerthi',
-        role: 'Leadership Team',
-        image: '/leaders/Akshay Sir.webp',
-        bio: 'Expert in digital transformation and innovative technology solutions.',
-        email: 'akshay@techlink.com',
-        linkedin: 'https://linkedin.com/in/akshay-keerthi',
-        expertise: 'Digital Transformation & Innovation'
+        name: 'Rupam Gogoi',
+        role: 'AI Technical Consultant',
+        image: '/leaders/placeholder.webp',
+        bio: 'Expert in leveraging Artificial Intelligence and machine learning to solve complex engineering challenges.',
+        email: 'rupam@millenniumtechlink.com',
+        linkedin: 'https://linkedin.com/in/rupam-gogoi',
+        expertise: 'AI Expert'
       }
     ]
   };
@@ -169,7 +169,7 @@ const About = () => {
         <title>About Us - TechLink</title>
         <meta
           name="description"
-          content="Learn about TechLink - our mission, values, and commitment to delivering excellence in design verification and testing services."
+          content="Learn about TechLink - our mission, values, and commitment to delivering excellence in design verification & validation and pre-compliance testing services."
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-white">
@@ -185,7 +185,7 @@ const About = () => {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We're a team of passionate technologists dedicated to helping businesses
-              ensure product excellence through expert design verification and testing.
+              ensure product excellence through expert design verification & validation and pre-compliance testing.
             </p>
           </motion.div>
         </div>

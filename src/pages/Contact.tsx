@@ -215,8 +215,8 @@ const Contact = () => {
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                       >
                         <option value="">Select a service</option>
-                        <option value="design-verification">Design Verification</option>
-                        <option value="testing">Testing</option>
+                        <option value="design-verification">Design Verification & Validation</option>
+                        <option value="testing">Pre-compliance Testing</option>
                       </select>
                     </div>
                     <div>

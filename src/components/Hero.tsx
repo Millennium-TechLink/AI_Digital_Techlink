@@ -87,9 +87,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            We provide expert design verification and testing services to
-            ensure reliability, enhance product quality, and accelerate your
-            development lifecycle.
+            We provide expert design verification & validation and pre-compliance
+            testing services to ensure reliability, enhance product quality, and
+            accelerate your development lifecycle.
           </motion.p>
 
           {/* CTA Buttons */}

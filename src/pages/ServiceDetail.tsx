@@ -6,9 +6,7 @@ import { services } from '@/data/services';
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const service = services.find(
-    (s) => s.title.toLowerCase().replace(/&/g, '').replace(/\s+/g, '-') === slug
-  );
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     return (

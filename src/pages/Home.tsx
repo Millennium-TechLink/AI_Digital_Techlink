@@ -13,15 +13,15 @@ const Home = () => {
         <title>TechLink - Explore the right labs near you</title>
         <meta 
           name="description" 
-          content="We provide expert design verification and testing services to ensure reliability, enhance product quality, and accelerate your development lifecycle." 
+          content="We provide expert design verification & validation and pre-compliance testing services to ensure reliability, enhance product quality, and accelerate your development lifecycle." 
         />
         <meta property="og:title" content="TechLink - Explore the right labs near you" />
-        <meta property="og:description" content="Expert design verification and testing services for your business." />
+        <meta property="og:description" content="Expert design verification & validation and pre-compliance testing services for your business." />
         <meta property="og:type" content="website" />
       </Helmet>
       <Hero />
-      <LabSearchSection />
       <Services />
+      <LabSearchSection />
       <Features />
       {/* <Testimonials /> */}
       <CTA />

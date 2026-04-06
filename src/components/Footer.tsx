@@ -28,8 +28,8 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Design Verification', href: '/services/design-verification' },
-      { name: 'Testing', href: '/services/testing' },
+      { name: 'Design Verification & Validation', href: '/services/design-verification' },
+      { name: 'Pre-compliance Testing', href: '/services/testing' },
     ],
     resources: [
       { name: 'Blog', href: '/blog' },
@@ -66,7 +66,8 @@ const Footer = () => {
               />
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Explore the right labs near you. We provide expert design 
-                verification and testing services to ensure reliability and innovation.
+                verification & validation and pre-compliance testing services to 
+                ensure reliability and innovation.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-400">

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { Target, FlaskConical, ArrowRight } from 'lucide-react';
+import { FlaskConical, ArrowRight } from 'lucide-react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -23,13 +23,13 @@ const LabSearchSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const markerLayer = useRef<L.LayerGroup | null>(null);
+  const markerMap = useRef<Map<string, L.Marker>>(new Map());
 
   // ---------------- STATE ----------------
   const [selectedCountry, setSelectedCountry] = useState('India');
   const [selectedState, setSelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedCapabilities, setSelectedCapabilities] = useState<string[]>([]);
-  const [selectedLabNames, setSelectedLabNames] = useState<string[]>([]);
   const [isCapabilitiesOpen, setIsCapabilitiesOpen] = useState(false);
   const capabilitiesRef = useRef<HTMLDivElement>(null);
 
@@ -46,8 +46,8 @@ const LabSearchSection = () => {
 
   // ---------------- DATA ----------------
   const testCapabilities = [
-    "EMC", "Safety", "Environmental", "Functional Safety", 
-    "Chemical", "Mechanical", "Electrical", "Optical", 
+    "EMC", "Safety", "Environmental", "Functional Safety",
+    "Chemical", "Mechanical", "Electrical", "Optical",
     "Thermal", "Acoustic", "Vibration", "RF & Wireless"
   ];
 
@@ -83,26 +83,31 @@ const LabSearchSection = () => {
   }, [selectedCountry, selectedState, selectedCity, selectedCapabilities]);
 
   // ---------------- HANDLERS ----------------
-  const handleLabSelection = (labName: string) => {
-    setSelectedLabNames(prev =>
-      prev.includes(labName) ? prev.filter(l => l !== labName) : [...prev, labName]
-    );
+  const handleLabClick = (lab: any) => {
+    if (!mapInstance.current || !lab.latitude || !lab.longitude) return;
+
+    const lat = parseFloat(lab.latitude);
+    const lng = parseFloat(lab.longitude);
+
+    // Pan and zoom to lab
+    mapInstance.current.flyTo([lat, lng], 15, { duration: 1.5 });
+
+    // Find marker and open popup
+    const marker = markerMap.current.get(lab.id);
+    if (marker) {
+      marker.openPopup();
+    }
   };
 
   useEffect(() => { setSelectedCity(''); }, [selectedState]);
 
   // ---------------- VANILLA LEAFLET INIT ----------------
   useEffect(() => {
-    // Expose select handler globally for Leaflet popups
-    (window as any).selectLabFromPopup = (labName: string) => {
-      handleLabSelection(labName);
-    };
-
     if (!mapRef.current || mapInstance.current) return;
 
     // Initialize map
     mapInstance.current = L.map(mapRef.current).setView([22.5, 78.9], 5);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapInstance.current);
@@ -114,7 +119,6 @@ const LabSearchSection = () => {
         mapInstance.current.remove();
         mapInstance.current = null;
       }
-      delete (window as any).selectLabFromPopup;
     };
   }, []);
 
@@ -122,8 +126,9 @@ const LabSearchSection = () => {
   useEffect(() => {
     if (!mapInstance.current || !markerLayer.current) return;
 
-    // Clear old markers
+    // Clear old markers and references
     markerLayer.current.clearLayers();
+    markerMap.current.clear();
 
     // Add new markers (cap to 100 for performance/initial load)
     const activeLabs = filteredLabs.slice(0, 100);
@@ -135,8 +140,7 @@ const LabSearchSection = () => {
         const lng = parseFloat(lab.longitude);
         
         // Escape single quotes for the inline onClick handler
-        const safeLabName = (lab.lab_name || '').replace(/'/g, "\\'");
-        
+
         // Define SVG strings directly to use in innerHTML
         const starIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
         const pinIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
@@ -181,21 +185,14 @@ const LabSearchSection = () => {
 
             <div class="flex gap-2 mb-2">
               <button 
-                onclick="window.selectLabFromPopup('${safeLabName}')"
-                class="flex-1 py-1.5 bg-[#2b64f5] hover:bg-blue-700 text-white rounded-[4px] text-xs font-bold transition-colors"
+                class="w-full py-2 bg-[#2b64f5] hover:bg-blue-700 text-white rounded-[4px] text-xs font-bold transition-colors"
                 style="border: none; cursor: pointer;"
-              >
-                Select Lab
-              </button>
-              <button 
-                class="px-4 py-1.5 bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 rounded-[4px] text-xs font-bold transition-colors"
-                style="cursor: pointer;"
               >
                 Details
               </button>
             </div>
             <button 
-              onclick="window.location.href='http://localhost:5173/login'"
+              onclick="window.location.href='http://localhost:5173/workspaces'"
               class="w-full flex items-center justify-center gap-1 py-1.5 bg-gray-50 border border-gray-200 hover:bg-gray-100 text-gray-700 rounded-[4px] text-xs font-bold transition-colors"
               style="cursor: pointer;"
             >
@@ -207,14 +204,25 @@ const LabSearchSection = () => {
 
         const marker = L.marker([lat, lng])
           .bindPopup(popupHTML, { maxWidth: 300, minWidth: 260 });
+
         markerLayer.current?.addLayer(marker);
+        markerMap.current.set(lab.id, marker);
         bounds.push([lat, lng]);
       }
     });
 
-    // Fit bounds if we have points
-    if (bounds.length > 0) {
-      mapInstance.current.fitBounds(L.latLngBounds(bounds), { padding: [40, 40], maxZoom: 14 });
+    // Fit bounds or fly to national view based on results
+    if (bounds.length > 1) {
+      mapInstance.current.flyToBounds(L.latLngBounds(bounds), {
+        padding: [50, 50],
+        maxZoom: 12, // More zoomed out at state level for better context
+        duration: 2 // Slightly slower for smooth perception
+      });
+    } else if (bounds.length === 1) {
+      mapInstance.current.flyTo(bounds[0] as L.LatLngExpression, 12, { duration: 2 });
+    } else {
+      // National overview if no results or reset
+      mapInstance.current.flyTo([22.5, 78.9], 5, { duration: 2 });
     }
   }, [filteredLabs]);
 
@@ -228,7 +236,7 @@ const LabSearchSection = () => {
               The Right Lab, <span className="text-blue-600">Right Now.</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed font-medium">
-              Pinpoint world-class testing facilities tailored to your specific compliance 
+              Pinpoint world-class testing facilities tailored to your specific compliance
               and reliability requirements in seconds.
             </p>
           </div>
@@ -271,10 +279,10 @@ const LabSearchSection = () => {
                   <div className="absolute top-full left-0 w-full bg-white border rounded-2xl shadow-2xl z-50 p-2 mt-2 max-h-64 overflow-y-auto animate-in fade-in zoom-in duration-200">
                     {testCapabilities.map(cap => (
                       <label key={cap} className="flex items-center gap-3 p-2 hover:bg-gray-50 cursor-pointer rounded-xl transition-colors">
-                        <input 
-                          type="checkbox" 
+                        <input
+                          type="checkbox"
                           className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                          checked={selectedCapabilities.includes(cap)} 
+                          checked={selectedCapabilities.includes(cap)}
                           onChange={(e) => {
                             e.stopPropagation();
                             setSelectedCapabilities(p => p.includes(cap) ? p.filter(x => x !== cap) : [...p, cap]);
@@ -294,19 +302,6 @@ const LabSearchSection = () => {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-[32px] border border-gray-100 shadow-2xl overflow-hidden h-[600px] relative">
                 <div ref={mapRef} style={{ height: '100%', width: '100%', zIndex: 1 }} />
-                
-                {/* Stats Overlay */}
-                <div className="absolute top-6 right-6 z-[1000] bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/20">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
-                      <Target className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black text-gray-400 uppercase">Selection</p>
-                      <p className="text-lg font-black text-gray-900">{selectedLabNames.length} Labs</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -315,7 +310,7 @@ const LabSearchSection = () => {
               <h3 className="text-xl font-bold text-gray-900">Recommended Labs ({filteredLabs.length})</h3>
               <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                 {filteredLabs.slice(0, 20).map((lab: any) => (
-                  <div key={lab.id} className={`p-4 rounded-2xl border cursor-pointer transition-all ${selectedLabNames.includes(lab.lab_name) ? 'bg-blue-50 border-blue-200' : 'bg-white border-gray-100 hover:border-blue-100'}`} onClick={() => handleLabSelection(lab.lab_name)}>
+                  <div key={lab.id} className="p-4 rounded-2xl border border-gray-100 bg-white hover:border-blue-200 hover:shadow-md cursor-pointer transition-all group" onClick={() => handleLabClick(lab)}>
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center"><FlaskConical className="w-5 h-5 text-gray-400" /></div>
                       <div className="flex-1 min-w-0">
@@ -331,7 +326,7 @@ const LabSearchSection = () => {
 
           <div className="mt-12 flex justify-center">
             <button 
-              onClick={() => window.location.href = 'http://localhost:5173/login'}
+              onClick={() => window.location.href = 'http://localhost:5173/workspaces'}
               className="px-8 py-4 w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2"
             >
               Explore more on our AI Platform

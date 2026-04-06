@@ -67,7 +67,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Explore the
+              Explore The
             </motion.span>
             <br />
             <motion.span
@@ -76,7 +76,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              right labs near you
+              Right Labs Near You
             </motion.span>
           </motion.h1>
 

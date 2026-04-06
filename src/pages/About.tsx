@@ -34,8 +34,8 @@ const About = () => {
         role: 'Founder & MD',
         image: '/leaders/Harish Sir.webp',
         bio: 'Passionate about delivering excellence in technology consulting and solutions.',
-        email: 'haresh@techlink.com',
-        linkedin: 'https://linkedin.com/in/haresh-abichandani',
+        email: 'haresh@millenniumsemi.com',
+        linkedin: 'https://www.linkedin.com/in/hareshabichandani',
         expertise: 'Managing Director, Millennium Semiconductor'
       },
       {
@@ -44,7 +44,7 @@ const About = () => {
         image: '/leaders/Ananth Sir.webp',
         bio: 'Visionary leader with extensive experience in technology and business strategy.',
         email: 'ananth@techlink.com',
-        linkedin: 'https://linkedin.com/in/ananth-krishna',
+        linkedin: 'https://www.linkedin.com/in/ananth-krishna-d',
         expertise: 'Strategic Planning & Technology Leadership'
       },
       {
@@ -62,11 +62,11 @@ const About = () => {
     strategic: [
       {
         name: 'Shree Harsha GP',
-        role: 'Strategic Manager',
+        role: 'Strategic Impact Lead',
         image: '/leaders/Harsha Sir.webp',
         bio: 'Dedicated to driving business growth through strategic technology initiatives.',
         email: 'harsha@techlink.com',
-        linkedin: 'https://linkedin.com/in/harsha-gp',
+        linkedin: 'https://www.linkedin.com/in/shree-harsha5',
         expertise: 'Business Strategy & Growth',
         imagePosition: 'center 0%'
       }
@@ -87,7 +87,7 @@ const About = () => {
         image: '/leaders/Rupam Sir.png',
         bio: 'Expert in leveraging Artificial Intelligence and machine learning to solve complex engineering challenges.',
         email: 'rupam@millenniumtechlink.com',
-        linkedin: 'https://linkedin.com/in/rupam-gogoi',
+        linkedin: 'https://www.linkedin.com/in/rupamgogoi',
         expertise: 'AI Expert',
         imagePosition: 'center 0%',
         imageTransform: 'scale(1.2) translateY(10%)'

@@ -64,24 +64,24 @@ const Contact = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-1"
+              className="lg:col-span-5"
             >
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="bg-white rounded-2xl p-8 shadow-lg h-full">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-primary-600" />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                      <a href="mailto:assurance@millenniumtechlink.com" className="text-gray-600 hover:text-primary-600">
+                      <a href="mailto:assurance@millenniumtechlink.com" className="text-gray-600 hover:text-primary-600 block">
                         assurance@millenniumtechlink.com
                       </a>
                     </div>
@@ -128,7 +128,7 @@ const Contact = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="lg:col-span-2"
+              className="lg:col-span-7"
             >
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 {submitted ? (

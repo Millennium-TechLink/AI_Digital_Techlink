@@ -84,11 +84,13 @@ const About = () => {
       {
         name: 'Rupam Gogoi',
         role: 'AI Technical Consultant',
-        image: '/leaders/placeholder.webp',
+        image: '/leaders/Rupam Sir.png',
         bio: 'Expert in leveraging Artificial Intelligence and machine learning to solve complex engineering challenges.',
         email: 'rupam@millenniumtechlink.com',
         linkedin: 'https://linkedin.com/in/rupam-gogoi',
-        expertise: 'AI Expert'
+        expertise: 'AI Expert',
+        imagePosition: 'center 0%',
+        imageTransform: 'scale(1.2) translateY(10%)'
       }
     ]
   };

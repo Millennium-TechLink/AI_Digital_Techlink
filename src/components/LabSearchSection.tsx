@@ -30,6 +30,19 @@ const LabSearchSection = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedCapabilities, setSelectedCapabilities] = useState<string[]>([]);
   const [selectedLabNames, setSelectedLabNames] = useState<string[]>([]);
+  const [isCapabilitiesOpen, setIsCapabilitiesOpen] = useState(false);
+  const capabilitiesRef = useRef<HTMLDivElement>(null);
+
+  // ---------------- EFFECTS ----------------
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (capabilitiesRef.current && !capabilitiesRef.current.contains(event.target as Node)) {
+        setIsCapabilitiesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // ---------------- DATA ----------------
   const testCapabilities = [
@@ -156,7 +169,7 @@ const LabSearchSection = () => {
               ID: ${lab.nabl_id || 'N/A'}
             </p>
 
-            <p class="text-[10px] text-blue-600 flex items-center gap-1.5 mb-2 truncate">
+            <p class="text-[10px] text-blue-600 flex items-center gap-1.5 mb-2 min-w-0">
               <span class="text-[#987dd3] shrink-0">${mailIcon}</span>
               <a href="mailto:${lab.contact_email}" class="hover:underline truncate">${lab.contact_email || 'Contact Info Unavailable'}</a>
             </p>
@@ -243,19 +256,35 @@ const LabSearchSection = () => {
                   {cities.map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
-              <div className="space-y-2 relative group">
+              <div ref={capabilitiesRef} className="space-y-2 relative">
                 <label className="text-sm font-bold text-gray-700">Capabilities</label>
-                <div className="w-full p-3 bg-gray-50 border rounded-2xl cursor-pointer">
-                  {selectedCapabilities.length === 0 ? "Select..." : `${selectedCapabilities.length} Selected`}
+                <div 
+                  onClick={() => setIsCapabilitiesOpen(!isCapabilitiesOpen)}
+                  className="w-full p-3 bg-gray-50 border rounded-2xl cursor-pointer flex justify-between items-center"
+                >
+                  <span className="text-gray-600">
+                    {selectedCapabilities.length === 0 ? "Select..." : `${selectedCapabilities.length} Selected`}
+                  </span>
+                  <svg className={`w-4 h-4 transition-transform ${isCapabilitiesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <div className="absolute top-full left-0 w-full bg-white border rounded-2xl shadow-2xl z-50 p-2 mt-2 hidden group-hover:block max-h-64 overflow-y-auto">
-                  {testCapabilities.map(cap => (
-                    <label key={cap} className="flex items-center gap-3 p-2 hover:bg-gray-50 cursor-pointer">
-                      <input type="checkbox" checked={selectedCapabilities.includes(cap)} onChange={() => setSelectedCapabilities(p => p.includes(cap) ? p.filter(x => x !== cap) : [...p, cap])} />
-                      <span className="text-sm text-gray-600 font-medium">{cap}</span>
-                    </label>
-                  ))}
-                </div>
+                {isCapabilitiesOpen && (
+                  <div className="absolute top-full left-0 w-full bg-white border rounded-2xl shadow-2xl z-50 p-2 mt-2 max-h-64 overflow-y-auto animate-in fade-in zoom-in duration-200">
+                    {testCapabilities.map(cap => (
+                      <label key={cap} className="flex items-center gap-3 p-2 hover:bg-gray-50 cursor-pointer rounded-xl transition-colors">
+                        <input 
+                          type="checkbox" 
+                          className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          checked={selectedCapabilities.includes(cap)} 
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            setSelectedCapabilities(p => p.includes(cap) ? p.filter(x => x !== cap) : [...p, cap]);
+                          }} 
+                        />
+                        <span className="text-sm text-gray-600 font-medium">{cap}</span>
+                      </label>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -289,8 +318,8 @@ const LabSearchSection = () => {
                   <div key={lab.id} className={`p-4 rounded-2xl border cursor-pointer transition-all ${selectedLabNames.includes(lab.lab_name) ? 'bg-blue-50 border-blue-200' : 'bg-white border-gray-100 hover:border-blue-100'}`} onClick={() => handleLabSelection(lab.lab_name)}>
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center"><FlaskConical className="w-5 h-5 text-gray-400" /></div>
-                      <div>
-                        <h4 className="text-sm font-bold text-gray-900 truncate">{lab.lab_name}</h4>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-sm font-bold text-gray-900 truncate" title={lab.lab_name}>{lab.lab_name}</h4>
                         <p className="text-[10px] text-gray-500">{lab.city}, {lab.state}</p>
                       </div>
                     </div>

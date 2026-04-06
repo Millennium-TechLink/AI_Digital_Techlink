@@ -8,7 +8,7 @@ const Insights = () => {
       id: 1,
       title: 'Company Townhall 2025',
       description: 'Our quarterly townhall meeting where leadership shared company updates, achievements, and future roadmap with all team members.',
-      date: 'December 12, 2025',
+      date: 'December 19, 2025',
       location: 'Pune, India',
       category: 'Company Event',
       image: '/Insights/Townhall.jpg',
@@ -23,7 +23,7 @@ const Insights = () => {
       id: 2,
       title: 'Diwali Celebration 2025',
       description: 'Festive celebration of Diwali with the TechLink family, featuring traditional rituals, decorations, and team bonding activities.',
-      date: 'November 12, 2025',
+      date: 'October 17, 2025',
       location: 'Pune, India',
       category: 'Festival Celebration',
       image: '/Insights/Diwali.webp',
@@ -38,7 +38,7 @@ const Insights = () => {
       id: 3,
       title: 'Ganesh Chaturthi Celebration',
       description: 'Celebrating the auspicious festival of Ganesh Chaturthi with traditional ceremonies, prayers, and team festivities.',
-      date: 'September 19, 2025',
+      date: 'September 3, 2025',
       location: 'Pune, India',
       category: 'Festival Celebration',
       image: '/Insights/Ganesh Chaturthi.webp',
@@ -53,7 +53,7 @@ const Insights = () => {
       id: 4,
       title: 'Navratri Garba Night',
       description: 'Vibrant Navratri celebration with traditional Garba dance, music, and cultural performances bringing the team together.',
-      date: 'October 15, 2025',
+      date: 'October 8, 2025',
       location: 'Pune, India',
       category: 'Cultural Event',
       image: '/Insights/Garba.webp',
@@ -68,7 +68,7 @@ const Insights = () => {
       id: 5,
       title: 'Team Badminton Tournament',
       description: 'Friendly badminton tournament promoting fitness, teamwork, and healthy competition among TechLink employees.',
-      date: 'August 25, 2025',
+      date: 'September 26 2025',
       location: 'Pune, India',
       category: 'Sports Event',
       image: '/Insights/Badminton.webp',
@@ -83,7 +83,7 @@ const Insights = () => {
       id: 6,
       title: 'Team Lunch Gathering',
       description: 'Regular team lunch sessions fostering camaraderie, informal discussions, and strengthening team relationships.',
-      date: 'August 15, 2025',
+      date: 'September 15, 2025',
       location: 'Pune, India',
       category: 'Team Building',
       image: '/Insights/Lunch.webp',
@@ -98,7 +98,7 @@ const Insights = () => {
       id: 7,
       title: 'Team Lunch Celebration',
       description: 'Special team lunch celebration marking project milestones and team achievements with great food and company.',
-      date: 'August 20, 2025',
+      date: 'November 21, 2025',
       location: 'Pune, India',
       category: 'Team Building',
       image: '/Insights/Lunch1.webp',
@@ -115,9 +115,9 @@ const Insights = () => {
     <>
       <Helmet>
         <title>Insights & Events - TechLink</title>
-        <meta 
-          name="description" 
-          content="Explore TechLink's company events, workshops, conferences, and team activities. Get insights into our culture and organizational happenings." 
+        <meta
+          name="description"
+          content="Explore TechLink's company events, workshops, conferences, and team activities. Get insights into our culture and organizational happenings."
         />
       </Helmet>
       <div className="pt-28 md:pt-32 pb-24 bg-gradient-to-br from-gray-50 to-white">
@@ -142,65 +142,67 @@ const Insights = () => {
 
           {/* Events Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {events.map((event, index) => (
-              <motion.article
-                key={event.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100"
-              >
-                <div className="h-72 md:h-80 bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover"
-                    style={{ 
-                      objectPosition: event.id === 4 ? 'center 60%' : 'center center',
-                      objectFit: 'cover'
-                    }}
-                  />
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary-600 rounded-full text-sm font-semibold">
-                      {event.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                    {event.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {event.description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Calendar className="w-4 h-4 text-primary-600" />
-                      <span>{event.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <MapPin className="w-4 h-4 text-primary-600" />
-                      <span>{event.location}</span>
+            {[...events]
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .map((event, index) => (
+                <motion.article
+                  key={event.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100"
+                >
+                  <div className="h-72 md:h-80 bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                      style={{
+                        objectPosition: event.id === 4 ? 'center 60%' : 'center center',
+                        objectFit: 'cover'
+                      }}
+                    />
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary-600 rounded-full text-sm font-semibold">
+                        {event.category}
+                      </span>
                     </div>
                   </div>
+                  <div className="p-6">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                      {event.title}
+                    </h2>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {event.description}
+                    </p>
 
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-2">Event Highlights:</h3>
-                    <ul className="space-y-1">
-                      {event.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 bg-primary-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-gray-100">
+                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <Calendar className="w-4 h-4 text-primary-600" />
+                        <span>{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <MapPin className="w-4 h-4 text-primary-600" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+
+                    <div className="mb-4">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-2">Event Highlights:</h3>
+                      <ul className="space-y-1">
+                        {event.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                            <div className="w-1.5 h-1.5 bg-primary-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              ))}
           </div>
 
           {/* CTA Section */}

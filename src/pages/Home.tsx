@@ -20,8 +20,8 @@ const Home = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <Hero />
-      <Services />
       <LabSearchSection />
+      <Services />
       <Features />
       {/* <Testimonials /> */}
       <CTA />

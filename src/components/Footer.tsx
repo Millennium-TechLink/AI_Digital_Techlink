@@ -42,7 +42,6 @@ const Footer = () => {
       { name: 'About Us', href: '/about' },
       { name: 'Careers', href: '/contact' },
       { name: 'Newsroom', href: '/insights' },
-      { name: 'Search Labs', href: '/search-labs' },
       { name: 'Contact Us', href: '/contact' },
     ],
   };
@@ -66,13 +65,13 @@ const Footer = () => {
                 className="h-20 md:h-24 w-auto mb-4 opacity-90 hover:opacity-100 transition-opacity"
               />
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Explore the right labs near you. We provide expert
-                solutions to accelerate your business growth and innovation.
+                Explore the right labs near you. We provide expert design 
+                verification and testing services to ensure reliability and innovation.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-400">
                   <Mail className="w-5 h-5 flex-shrink-0" />
-                  <span>contact@techlink.com</span>
+                  <span>assurance@millenniumtechlink.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400">
                   <Phone className="w-5 h-5 flex-shrink-0" />

@@ -50,7 +50,7 @@ const Hero = () => {
           >
             <Sparkles className="w-4 h-4 text-primary-600" />
             <span className="text-sm font-medium text-gray-700">
-              Transforming Businesses Through Innovation
+              Ensuring Excellence in Product Engineering & Testing
             </span>
           </motion.div>
 
@@ -87,9 +87,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            We provide expert cloud, data, and digital experience solutions to
-            accelerate your business growth, enhance efficiency, and foster
-            innovation.
+            We provide expert design verification and testing services to
+            ensure reliability, enhance product quality, and accelerate your
+            development lifecycle.
           </motion.p>
 
           {/* CTA Buttons */}

@@ -135,7 +135,7 @@ const TermsOfService = () => {
               </p>
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-gray-700">
-                  <strong>Email:</strong> legal@techlink.com<br />
+                  <strong>Email:</strong> assurance@millenniumtechlink.com<br />
                   <strong>Phone:</strong> +91-9156031867<br />
                   <strong>Address:</strong> 17/18/19, 2nd Floor, Mahalaxmi Heights, Mumbai-Pune Road, Pimpri, Pune, Maharashtra - 411018
                 </p>

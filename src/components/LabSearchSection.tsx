@@ -138,7 +138,7 @@ const LabSearchSection = () => {
       if (lab.latitude && lab.longitude) {
         const lat = parseFloat(lab.latitude);
         const lng = parseFloat(lab.longitude);
-        
+
         // Escape single quotes for the inline onClick handler
 
         // Define SVG strings directly to use in innerHTML
@@ -183,16 +183,9 @@ const LabSearchSection = () => {
               ${lab.contact_mobile || 'N/A'}
             </p>
 
-            <div class="flex gap-2 mb-2">
-              <button 
-                class="w-full py-2 bg-[#2b64f5] hover:bg-blue-700 text-white rounded-[4px] text-xs font-bold transition-colors"
-                style="border: none; cursor: pointer;"
-              >
-                Details
-              </button>
-            </div>
+
             <button 
-              onclick="window.location.href='http://localhost:5173/workspaces'"
+              onclick="window.location.href='http://localhost:5173'"
               class="w-full flex items-center justify-center gap-1 py-1.5 bg-gray-50 border border-gray-200 hover:bg-gray-100 text-gray-700 rounded-[4px] text-xs font-bold transition-colors"
               style="cursor: pointer;"
             >
@@ -230,7 +223,7 @@ const LabSearchSection = () => {
     <>
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="flex flex-col items-center justify-center text-center mb-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
               The Right Lab, <span className="text-blue-600">Right Now.</span>
@@ -266,7 +259,7 @@ const LabSearchSection = () => {
               </div>
               <div ref={capabilitiesRef} className="space-y-2 relative">
                 <label className="text-sm font-bold text-gray-700">Capabilities</label>
-                <div 
+                <div
                   onClick={() => setIsCapabilitiesOpen(!isCapabilitiesOpen)}
                   className="w-full p-3 bg-gray-50 border rounded-2xl cursor-pointer flex justify-between items-center"
                 >
@@ -286,7 +279,7 @@ const LabSearchSection = () => {
                           onChange={(e) => {
                             e.stopPropagation();
                             setSelectedCapabilities(p => p.includes(cap) ? p.filter(x => x !== cap) : [...p, cap]);
-                          }} 
+                          }}
                         />
                         <span className="text-sm text-gray-600 font-medium">{cap}</span>
                       </label>
@@ -325,8 +318,8 @@ const LabSearchSection = () => {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <button 
-              onClick={() => window.location.href = 'http://localhost:5173/workspaces'}
+            <button
+              onClick={() => window.location.href = 'http://localhost:5173'}
               className="px-8 py-4 w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2"
             >
               Explore more on our AI Platform

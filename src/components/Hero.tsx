@@ -105,7 +105,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center space-x-2 hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl"
               >
-                <span>Explore Platform</span>
+                <span>Explore Services</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>

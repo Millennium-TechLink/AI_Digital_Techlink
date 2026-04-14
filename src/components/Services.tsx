@@ -50,22 +50,33 @@ const Services = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-7xl mx-auto"
         >
-          {services.map((service) => {
+          {services.map((service, index) => {
             const Icon = service.icon;
+
+            // Grid spanning logic to cleanly center the final items
+            let colClasses = "md:col-span-3  lg:col-span-3";
+            if (index === 3) {
+              // Center the 4th item on big screens (starts 2nd col line out of 6)
+              colClasses += " lg:col-start-2";
+            }
+            if (index === 4) {
+              // Center the 5th item on medium screens (starts 2nd col line out of 4)
+              colClasses += " md:col-start-3 lg:col-start-auto";
+            }
+
             return (
-              <Link 
-                key={service.title} 
+              <Link
+                key={service.title}
                 to={`/services/${service.slug}`}
-                className="block outline-none"
+                className={`block outline-none ${colClasses}`}
               >
                 <motion.div
                   variants={itemVariants}
                   whileHover={service.isComingSoon ? { y: -5 } : { y: -15, scale: 1.02 }}
-                  className={`group relative bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100 h-full overflow-hidden ${
-                    service.isComingSoon ? 'cursor-default opacity-80 grayscale-[0.8]' : 'hover:shadow-2xl'
-                  }`}
+                  className={`group relative bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100 h-full overflow-hidden ${service.isComingSoon ? 'cursor-default opacity-80 grayscale-[0.8]' : 'hover:shadow-2xl'
+                    }`}
                 >
                   {/* Coming Soon Badge */}
                   {service.isComingSoon && (
@@ -83,12 +94,11 @@ const Services = () => {
                       initial={false}
                     />
                   )}
-                  
+
                   {/* Icon */}
                   <motion.div
-                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 transition-transform relative ${
-                      !service.isComingSoon && 'group-hover:scale-110'
-                    } ${service.isComingSoon ? 'opacity-80 grayscale-[0.5]' : ''}`}
+                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 transition-transform relative ${!service.isComingSoon && 'group-hover:scale-110'
+                      } ${service.isComingSoon ? 'opacity-80 grayscale-[0.5]' : ''}`}
                     whileHover={!service.isComingSoon ? { rotate: [0, -10, 10, -10, 0] } : {}}
                     transition={{ duration: 0.5 }}
                   >
@@ -117,9 +127,8 @@ const Services = () => {
                         key={feature}
                         className="flex items-center text-sm text-gray-600"
                       >
-                        <div className={`w-1.5 h-1.5 rounded-full mr-2 ${
-                          service.isComingSoon ? 'bg-gray-300' : 'bg-primary-600'
-                        }`} />
+                        <div className={`w-1.5 h-1.5 rounded-full mr-2 ${service.isComingSoon ? 'bg-gray-300' : 'bg-primary-600'
+                          }`} />
                         {feature}
                       </li>
                     ))}

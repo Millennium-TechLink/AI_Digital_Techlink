@@ -30,6 +30,9 @@ const Footer = () => {
     services: [
       { name: 'Design Verification & Validation', href: '/services/design-verification' },
       { name: 'Pre-compliance Testing', href: '/services/testing' },
+      { name: 'Certification', href: '/services/certification' },
+      { name: 'LMS', href: '/services/lms' },
+      { name: 'QMS', href: '/services/qms' },
     ],
     resources: [
       { name: 'Blog', href: '/blog' },

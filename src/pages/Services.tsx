@@ -32,9 +32,21 @@ const Services = () => {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16 max-w-7xl mx-auto">
             {services.map((service, index) => {
               const Icon = service.icon;
+
+              // Grid spanning logic to center the final items
+              let colClasses = "md:col-span-2 lg:col-span-2";
+              if (index === 3) {
+                // Center the 4th item on big screens
+                colClasses += " lg:col-start-2";
+              }
+              if (index === 4) {
+                // Center the 5th item on medium screens
+                colClasses += " md:col-start-2 lg:col-start-auto";
+              }
+
               return (
                 <motion.div
                   key={service.title}
@@ -42,7 +54,7 @@ const Services = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={service.isComingSoon ? { y: -5 } : { y: -15, scale: 1.02, rotateY: 2 }}
-                  className={`group relative bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden ${
+                  className={`group relative bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden ${colClasses} ${
                     service.isComingSoon ? 'cursor-default opacity-80 grayscale-[0.8]' : 'hover:shadow-2xl'
                   }`}
                 >

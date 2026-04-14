@@ -54,15 +54,15 @@ const Services = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
 
-            // Grid spanning logic to cleanly center the final items
-            let colClasses = "md:col-span-3  lg:col-span-3";
+            // Grid spanning logic to center the final items
+            let colClasses = "md:col-span-2 lg:col-span-2";
             if (index === 3) {
-              // Center the 4th item on big screens (starts 2nd col line out of 6)
+              // Center the 4th item on big screens
               colClasses += " lg:col-start-2";
             }
             if (index === 4) {
-              // Center the 5th item on medium screens (starts 2nd col line out of 4)
-              colClasses += " md:col-start-3 lg:col-start-auto";
+              // Center the 5th item on medium screens
+              colClasses += " md:col-start-2 lg:col-start-auto";
             }
 
             return (

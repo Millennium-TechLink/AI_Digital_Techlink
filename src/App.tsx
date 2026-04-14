@@ -20,8 +20,8 @@ import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
-import ProductsPage from './pages/ProductsPage';
-import ProductDetailPage from './pages/ProductDetailPage';
+// import ProductsPage from './pages/ProductsPage';
+// import ProductDetailPage from './pages/ProductDetailPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
                 </PageTransition>
               }
             />
-            <Route
+            {/*<Route
               path="/products"
               element={
                 <PageTransition>
@@ -74,7 +74,7 @@ function App() {
                   <ProductDetailPage />
                 </PageTransition>
               }
-            />
+            />*/}
             <Route
               path="/about"
               element={

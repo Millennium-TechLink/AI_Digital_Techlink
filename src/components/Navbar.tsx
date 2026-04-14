@@ -32,11 +32,11 @@ const Navbar = () => {
       href: '/industries',
       hasDropdown: false
     },
-    {
+    /* {
       name: 'Products',
       href: '/products',
       hasDropdown: false
-    },
+    }, */
     {
       name: 'About Us',
       href: '/about',

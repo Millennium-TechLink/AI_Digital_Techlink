@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
-import { Check } from 'lucide-react';
 
 const Services = () => {
   const containerVariants = {
